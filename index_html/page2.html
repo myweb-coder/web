@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登幽州台歌</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.0.19/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/lxgw-wenkai@5.0.2/index.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Noto Serif SC', 'LXGW WenKai', serif;
+    background: #f4efe6;
+    background-image: 
+      radial-gradient(ellipse at top left, rgba(200, 180, 150, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(180, 160, 130, 0.12) 0%, transparent 50%);
+    color: #3a3228;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  /* 纸张纹理 */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139, 115, 85, 0.02) 2px, rgba(139, 115, 85, 0.02) 3px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(139, 115, 85, 0.02) 2px, rgba(139, 115, 85, 0.02) 3px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    animation: fadeIn 2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .title {
+    font-size: 0.95rem;
+    letter-spacing: 0.8em;
+    color: #8a7a65;
+    font-weight: 400;
+    padding-left: 0.8em;
+  }
+
+  .poem-wrapper {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .verse {
+    writing-mode: vertical-rl;
+    font-size: 2.4rem;
+    line-height: 2.2;
+    letter-spacing: 0.3em;
+    color: #2a241c;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .verse.first {
+    animation: verseReveal 1.8s ease-out 0.5s both;
+  }
+
+  .verse.second {
+    animation: verseReveal 1.8s ease-out 1.2s both;
+  }
+
+  @keyframes verseReveal {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .seal {
+    width: 52px;
+    height: 52px;
+    margin-top: 1rem;
+    opacity: 0.85;
+    animation: sealAppear 1.5s ease-out 2.2s both;
+  }
+
+  @keyframes sealAppear {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 0.85; transform: scale(1); }
+  }
+
+  .author {
+    font-size: 0.85rem;
+    color: #9a8a75;
+    letter-spacing: 0.5em;
+    padding-left: 0.5em;
+    animation: fadeIn 1.5s ease-out 1.8s both;
+  }
+
+  /* 装饰线条 */
+  .divider {
+    width: 1px;
+    height: 0;
+    background: linear-gradient(to bottom, transparent, #b8a890, transparent);
+    animation: growLine 2s ease-out 0.3s both;
+  }
+
+  @keyframes growLine {
+    from { height: 0; opacity: 0; }
+    to { height: 60px; opacity: 0.6; }
+  }
+
+  /* 角落装饰 */
+  .corner {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+    z-index: 2;
+  }
+  .corner.tl { top: 30px; left: 30px; border-top: 1px solid #8a7a65; border-left: 1px solid #8a7a65; }
+  .corner.tr { top: 30px; right: 30px; border-top: 1px solid #8a7a65; border-right: 1px solid #8a7a65; }
+  .corner.bl { bottom: 30px; left: 30px; border-bottom: 1px solid #8a7a65; border-left: 1px solid #8a7a65; }
+  .corner.br { bottom: 30px; right: 30px; border-bottom: 1px solid #8a7a65; border-right: 1px solid #8a7a65; }
+
+  @media (max-width: 600px) {
+    .verse {
+      font-size: 1.8rem;
+      letter-spacing: 0.2em;
+    }
+    .poem-wrapper {
+      gap: 1.5rem;
+    }
+    .corner { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="container">
+    <div class="title">登 幽 州 台 歌</div>
+    
+    <div class="poem-wrapper">
+      <div class="verse first">前不见古人</div>
+      <div class="divider"></div>
+      <div class="verse second">后不见来者</div>
+      <div class="divider"></div>
+      <div class="verse third">念天地之悠悠</div>
+      <div class="divider"></div>
+      <div class="verse fourth">独怆然而涕下</div>
+    </div>
+
+    <svg class="seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="4" width="92" height="92" fill="none" stroke="#a83a2a" stroke-width="3" rx="2"/>
+      <text x="50" y="42" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="22" fill="#a83a2a" font-weight="600">子</text>
+      <text x="50" y="74" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="22" fill="#a83a2a" font-weight="600">昂</text>
+    </svg>
+
+    <div class="author">— 唐 · 陈 子 昂 —</div>
+  </div>
+</body>
+</html>
